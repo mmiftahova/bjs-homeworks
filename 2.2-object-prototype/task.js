@@ -1,23 +1,13 @@
 //String.prototype.isPalindrome - для задачи №1
-
-function isPallindrome(text){
-    text = text.toLowerCase();
-   //  +
-   
-   let result = text.split('').reverse().join('')
-   console.log(result)
-   if (result === text) {
-     return true
-   } else {
-     return false
-   }
- } 
- isPallindrome('А роза упала на лапу Азора
-
-
-
-
-
+String.prototype.isPalindrome = function() {
+    let text = this.toLowerCase().split(' ').join('');
+    let textReversed = text.toLowerCase().split('').reverse().join('');
+    if (text === textReversed) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 function getAverageMark(marks) {
@@ -37,8 +27,6 @@ function getAverageMark(marks) {
 }
 
 
-
-
 function checkBirthday(birthday) {
     // код для задачи №3 писать здесь
     let now = Date.now();
@@ -50,5 +38,4 @@ function checkBirthday(birthday) {
     } else {
         return true
     }
-    // // return verdict
 }
