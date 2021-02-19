@@ -15,12 +15,17 @@ function sum(...args) {
 }
 
 function memorize(fn,limit) {
+  
     let memory = [];
     return function  (...args) {
       let memoryFind = memory.find(function(a) {
         return compareArrays(a.args, args);
       });
-      if (memoryFind === undefined) {
+
+      if (!memoryFind) {
+          if (memory.length === limit) {
+             memory.shift();
+          } 
           memoryFind = new Object();
           memoryFind.args = args;
           memoryFind.result = fn(...args);
@@ -29,8 +34,9 @@ function memorize(fn,limit) {
       return memoryFind.result;
     
     };
+  }
 
-}
+
 
 
 
